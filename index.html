@@ -14,7 +14,7 @@
       color: #333;
     }
     header {
-      background: #24292e;
+      background: #007acc;
       color: white;
       padding: 2rem 1rem;
       text-align: center;
@@ -45,36 +45,89 @@
     .social-links a {
       margin-right: 1rem;
     }
+    .publication {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.pub-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+.pub-authors {
+  font-size: 0.95rem;
+  color: #555;
+}
+.pub-meta {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+.pub-links a {
+  margin-right: 0rem;
+  font-size: 0.9rem;
+}
   </style>
 </head>
 <body>
 
 <header>
   <h1>Dennis Dayanikli</h1>
-  <p>Welcome to my Website! (Under Construction) </p>
+  <p>Welcome to my Website! </p>
 </header>
 
 <main>
   <section>
     <h2>About Me</h2>
     <p>
-      I'm a PhD student in cryptography interested in [topics you're interested in provable security and password-based cryptography. 
+      I'm a PhD student in cryptography interested in provable security and password-based cryptography. 
     </p>
   </section>
+<section>
+  <h2>Publications</h2>
+   <div class="publication">
+    <div class="pub-title"><strong> Virtual End-to-End Encryption: Analysis of the Doctolib Protocol </strong></div>
+    <div class="pub-authors">Dayanikli, D., Holz, L., Lehmann, A.</div>
+    <div class="pub-meta"><em>to appear at AsiaCCS 2025.</em></div>
+  </div>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="https://github.com/yourusername/project1">Project 1</a> – Short description of the project.</li>
-      <li><a href="https://github.com/yourusername/project2">Project 2</a> – Short description of the project.</li>
-    </ul>
-  </section>
+
+  <div class="publication">
+    <div class="pub-title"><strong>(Strong) aPAKE Revisited: Capturing Multi-User Security and Salting</strong></div>
+    <div class="pub-authors">Dayanikli, D., Lehmann, A.</div>
+    <div class="pub-meta"><em>IEEE European Symposium on Security and Privacy (EuroS&P), 2024.</em></div>
+    <div class="pub-links">
+      [<a href="https://eprint.iacr.org/2024/756">link</a>]
+    </div>
+  </div>
+
+  <div class="publication">
+    <div class="pub-title"><strong>Provable Security Analysis of the Secure Remote Password Protocol</strong></div>
+    <div class="pub-authors">Dayanikli, D., Lehmann, A.</div>
+    <div class="pub-meta"><em>37th IEEE Computer Security Foundations Symposium (CSF), 2024.</em></div>
+    <div class="pub-links">
+      [<a href="https://eprint.iacr.org/2023/1457">link</a>]
+    </div>
+  </div>
+
+  <div class="publication">
+    <div class="pub-title"><strong>Password-Based Credentials with Security against Server Compromise</strong></div>
+    <div class="pub-authors">Dayanikli, D., Lehmann, A.</div>
+    <div class="pub-meta"><em>European Symposium on Research in Computer Security (ESORICS), 2023.</em></div>
+    <div class="pub-links">
+      [<a href="https://eprint.iacr.org/2023/809">link</a>]
+    </div>
+  </div>
+</section>
 
   <section>
     <h2>Contact & Links</h2>
     <div class="social-links">
-      <a href="mailto:your.email@example.com">Email</a>
-      <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+      <a href="mailto:dennis.dayanikli@hpi.de">Email</a>
+      <a href="https://www.linkedin.com/in/dennis-dayanikli-71844913b/">LinkedIn</a>
     </div>
   </section>
 </main>
