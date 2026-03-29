@@ -2,202 +2,497 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Personal Homepage of Dennis Dayanikli" />
-  <title> Dennis Dayanikli | Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal homepage of Dennis Dayanikli" />
+  <title>Dennis Dayanikli | Homepage</title>
   <style>
+    :root {
+      --page-bg: #f8f5ef;
+      --paper: rgba(255, 252, 246, 0.92);
+      --text: #1f1b17;
+      --muted: #6c6258;
+      --rule: #d9d0c3;
+      --link: #1f4f68;
+      --link-hover: #13384b;
+      --accent: #b88a5a;
+      --shadow: 0 22px 50px rgba(66, 46, 23, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
+      min-height: 100vh;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "URW Palladio L", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(184, 138, 90, 0.14), transparent 32%),
+        linear-gradient(180deg, #fbf8f3 0%, var(--page-bg) 48%, #f3ede3 100%);
+      line-height: 1.7;
     }
-    header {
-      background: #007acc;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
+
     a {
-      color: #0366d6;
+      color: var(--link);
       text-decoration: none;
     }
-    a:hover {
+
+    a:hover,
+    a:focus-visible {
+      color: var(--link-hover);
       text-decoration: underline;
+      text-underline-offset: 0.16em;
     }
-    .social-links a {
+
+    .page {
+      width: min(860px, calc(100% - 2rem));
+      margin: 2rem auto;
+      padding: 2.75rem 2.5rem 3rem;
+      background: var(--paper);
+      border: 1px solid rgba(217, 208, 195, 0.8);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent), rgba(184, 138, 90, 0.15));
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 170px;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 2.25rem;
+    }
+
+    h1,
+    h2 {
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 3.5rem);
+      line-height: 1.05;
+      margin-bottom: 0.55rem;
+    }
+
+    .subtitle {
+      margin: 0 0 0.9rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 58ch;
+      font-size: 1.04rem;
+    }
+
+    .profile-pic {
+      width: 100%;
+      max-width: 170px;
+      aspect-ratio: 1 / 1.1;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(31, 27, 23, 0.1);
+      box-shadow: 0 10px 24px rgba(66, 46, 23, 0.12);
+      filter: saturate(0.95);
+    }
+
+    nav {
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.85rem 0;
+      margin-bottom: 2rem;
+      color: var(--muted);
+    }
+
+    nav a {
       margin-right: 1rem;
+      white-space: nowrap;
     }
-    .publication {
-  background: white;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-.pub-title {
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
-}
-.pub-authors {
-  font-size: 0.95rem;
-  color: #555;
-}
-.pub-meta {
-  font-size: 0.95rem;
-  color: #777;
-  margin-bottom: 0.5rem;
-}
-.pub-links a {
-  margin-right: 0rem;
-  font-size: 0.9rem;
-}
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.teaching-item {
-  background: white;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-.teaching-course {
-  font-size: 1.1rem;
-  margin-bottom: 0.2rem;
-}
-.teaching-meta {
-  font-size: 0.95rem;
-  color: #777;
-  margin-bottom: 0.5rem;
-}
+
+    main section {
+      margin-bottom: 2.5rem;
+      scroll-margin-top: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    .contact-line,
+    .notes {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .teaching-list {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .teaching-row {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 1.2rem;
+      align-items: start;
+      padding: 0.55rem 0;
+      border-top: 1px solid rgba(217, 208, 195, 0.85);
+    }
+
+    .teaching-row:last-child {
+      border-bottom: 1px solid rgba(217, 208, 195, 0.85);
+    }
+
+    .teaching-left {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .teaching-right {
+      font-size: 1rem;
+    }
+
+    .cv-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .cv-row {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 1.2rem;
+      align-items: start;
+      padding: 0.55rem 0;
+      border-top: 1px solid rgba(217, 208, 195, 0.85);
+    }
+
+    .cv-row:last-child {
+      border-bottom: 1px solid rgba(217, 208, 195, 0.85);
+    }
+
+    .cv-left {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .cv-right {
+      font-size: 1rem;
+    }
+
+    .cv-right .notes {
+      margin-top: 0.2rem;
+    }
+
+    .contact-line {
+      margin-bottom: 0.4rem;
+    }
+
+    .inline-links a:not(:last-child)::after {
+      content: " /";
+      color: var(--rule);
+      margin-left: 0.45rem;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100%, calc(100% - 1rem));
+        margin: 0.5rem auto;
+        padding: 1.5rem 1.1rem 2rem;
+      }
+
+      header {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .profile-pic {
+        max-width: 150px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin-bottom: 0.35rem;
+      }
+
+      .teaching-row {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
+      }
+
+      .cv-row {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="page">
+    <header>
+      <div>
+        <h1>Dennis Dayanikli</h1>
+        <p class="subtitle">PhD researcher in cryptography at the Hasso Plattner Institute</p>
+      </div>
+      <img src="images/new_profilepic.jpeg" alt="Portrait of Dennis Dayanikli" class="profile-pic" />
+    </header>
 
-<header>
-      <img src="images/profilepic.jpg" alt="Profile picture" class="profile-pic" />
-  <h1>Dennis Dayanikli</h1>
-  <p>Welcome to my Website! </p>
-</header>
+    <nav aria-label="Section navigation">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#supervision">Supervision</a>
+      <a href="/blog/">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<main>
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I am a cryptographer at the Hasso Plattner Institute, specializing in the provable security of authentication protocols, with a particular focus on password-based authentication. My research centers on the design and formal analysis of secure protocols.
-    </p>
-    <p>
-      I am currently pursuing my PhD under the supervision of Anja Lehmann. Prior to that, I earned a Master's degree in Mathematics from Ulm University.
-    </p>
-  </section>
-<section>
-  <h2>Publications</h2>
-   <div class="publication">
-    <div class="pub-title"><strong> Virtual End-to-End Encryption: Analysis of the Doctolib Protocol </strong></div>
-    <div class="pub-authors">Dayanikli, D., Holz, L., Lehmann, A.</div>
-    <div class="pub-meta"><em>to appear at AsiaCCS 2025.</em></div>
-  </div>
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          I am currently a PhD researcher in cryptography at the Hasso Plattner Institute (HPI), working under the supervision of Anja Lehmann. 
+          Before that, I completed both my Bachelor’s and Master’s degrees in Mathematics at Ulm University.
+        </p>
+        <p>
+          My research focuses on the provable security of cryptographic protocols, typically involving the development of security models, a formal security analysis, and the design of new constructions.
+          My main focus is on password-based authentication protocols. I submitted my PhD thesis in January, titled <i> Stronger Security for Password-Based Authentication Protocols</i>.
+          
+        </p>
+      </section>
+
+      <section id="publications">
+        <h2>Publications</h2>
+        <p class="notes">
+          An up-to-date list of my publications can be found on
+          <a href="https://dblp.org/pid/221/1083.html">dblp</a>.
+        </p>
+        <div class="cv-list">
+          <div class="cv-row">
+            <div class="cv-left">2025<br />CCS</div>
+            <div class="cv-right">
+              <strong>Updatable aPAKE: Security Against Bulk Precomputation Attacks</strong><br />
+              <span class="notes">Dennis Dayanikli, Anja Lehmann.</span>
+              <div class="notes">
+                <a href="https://dl.acm.org/doi/10.1145/3719027.3765155">paper</a> /
+                <a href="https://eprint.iacr.org/2025/1511">ePrint</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-row">
+            <div class="cv-left">2025<br />AsiaCCS</div>
+            <div class="cv-right">
+              <strong>Virtual End-to-End Encryption: Analysis of the Doctolib Protocol</strong><br />
+              <span class="notes">Dennis Dayanikli, Laura Holz, Anja Lehmann. To appear.</span>
+              <div class="notes">
+                <a href="https://dl.acm.org/doi/10.1145/3708821.3710841">paper</a> /
+                <a href="https://eprint.iacr.org/2025/1512">ePrint</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-row">
+            <div class="cv-left">2024<br />EuroS&amp;P</div>
+            <div class="cv-right">
+              <strong>(Strong) aPAKE Revisited: Capturing Multi-User Security and Salting</strong><br />
+              <span class="notes">Dennis Dayanikli, Anja Lehmann.</span>
+              <div class="notes">
+                <a href="https://ieeexplore.ieee.org/document/10629023">paper</a> /
+                <a href="https://eprint.iacr.org/2024/756">ePrint</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-row">
+            <div class="cv-left">2024<br />CSF</div>
+            <div class="cv-right">
+              <strong>Provable Security Analysis of the Secure Remote Password Protocol</strong><br />
+              <span class="notes">Dennis Dayanikli, Anja Lehmann.</span>
+              <div class="notes">
+                <a href="https://ieeexplore.ieee.org/document/10664343">paper</a> /
+                <a href="https://eprint.iacr.org/2023/1457">ePrint</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-row">
+            <div class="cv-left">2023<br />ESORICS</div>
+            <div class="cv-right">
+              <strong>Password-Based Credentials with Security against Server Compromise</strong><br />
+              <span class="notes">Dennis Dayanikli, Anja Lehmann.</span>
+              <div class="notes">
+                <a href="https://link.springer.com/chapter/10.1007/978-3-031-50594-2_8">paper</a> /
+                <a href="https://eprint.iacr.org/2023/809">ePrint</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-row">
+            <div class="cv-left">2018<br />Discrete Mathematics</div>
+            <div class="cv-right">
+              <strong>Approximately locating an invisible agent in a graph with relative distance queries</strong><br />
+              <span class="notes">Dennis Dayanikli, Dieter Rautenbach.</span>
+              <div class="notes">
+                <a href="https://www.sciencedirect.com/science/article/pii/S0012365X18301468?via%3Dihub">paper</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="teaching">
+        <h2>Teaching</h2>
+        <p class="notes">An overview of teaching-related experience.</p>
+        <div class="teaching-list">
+          <div class="teaching-row">
+            <div class="teaching-left">2025, 2024, 2023, 2022, 2021, 2020<br />Hasso Plattner Institute</div>
+            <div class="teaching-right">Lecture (TA): <strong>Introduction to Cryptography</strong></div>
+          </div>
+
+          <div class="teaching-row">
+            <div class="teaching-left">2024, 2023, 2022, 2021<br />Hasso Plattner Institute</div>
+            <div class="teaching-right">Lecture (TA): <strong>Advanced Cryptography</strong></div>
+          </div>
+
+          <div class="teaching-row">
+            <div class="teaching-left">2025<br />Hasso Plattner Institute</div>
+            <div class="teaching-right">Lecture: <strong>Quantum-Safe Cryptography</strong></div>
+          </div>
+
+          <div class="teaching-row">
+            <div class="teaching-left">2024, 2023<br />Hasso Plattner Institute</div>
+            <div class="teaching-right">Seminar: <strong>Cryptographic Protocols</strong></div>
+          </div>
+
+          <div class="teaching-row">
+            <div class="teaching-left">2023<br />Hasso Plattner Institute</div>
+            <div class="teaching-right">Master project: <strong>Security Analysis of Assertion Tokens in Single Sign-On Solutions</strong></div>
+          </div>
+
+          <div class="teaching-row">
+            <div class="teaching-left">2022<br />Hasso Plattner Institute</div>
+            <div class="teaching-right">Seminar: <strong>Current Topics in Group Messaging</strong></div>
+          </div>
+
+          <div class="teaching-row">
+            <div class="teaching-left">2022<br />Hasso Plattner Institute</div>
+            <div class="teaching-right">Seminar: <strong>Password-based Authentication: Attacks &amp; Defenses</strong></div>
+          </div>
+
+          <div class="teaching-row">
+            <div class="teaching-left"> 2017<br />University of Ulm</div>
+            <div class="teaching-right">Student Assistant: <strong>Höhere Mathematik für Physiker und Ingenieure</strong></div>
+          </div>
+         <div class="teaching-row">
+            <div class="teaching-left"> 2017, 2013<br />University of Ulm</div>
+            <div class="teaching-right">Student Assistant: <strong> Algebra 1</strong></div>
+          </div>
 
 
-  <div class="publication">
-    <div class="pub-title"><strong>(Strong) aPAKE Revisited: Capturing Multi-User Security and Salting</strong></div>
-    <div class="pub-authors">Dayanikli, D., Lehmann, A.</div>
-    <div class="pub-meta"><em>IEEE European Symposium on Security and Privacy (EuroS&P), 2024.</em></div>
-    <div class="pub-links">
-      [<a href="https://eprint.iacr.org/2024/756">link</a>]
-    </div>
-  </div>
+          <div class="teaching-row">
+            <div class="teaching-left"> 2016, 2014<br />University of Ulm</div>
+            <div class="teaching-right">Student Assistant: <strong>Elemente der Algebra</strong></div>
+          </div>
 
-  <div class="publication">
-    <div class="pub-title"><strong>Provable Security Analysis of the Secure Remote Password Protocol</strong></div>
-    <div class="pub-authors">Dayanikli, D., Lehmann, A.</div>
-    <div class="pub-meta"><em>37th IEEE Computer Security Foundations Symposium (CSF), 2024.</em></div>
-    <div class="pub-links">
-      [<a href="https://eprint.iacr.org/2023/1457">link</a>]
-    </div>
-  </div>
+          <div class="teaching-row">
+            <div class="teaching-left"> 2015<br />University of Ulm</div>
+            <div class="teaching-right">Student Assistant: <strong>Optimization and OR 1</strong></div>
+          </div>
 
-  <div class="publication">
-    <div class="pub-title"><strong>Password-Based Credentials with Security against Server Compromise</strong></div>
-    <div class="pub-authors">Dayanikli, D., Lehmann, A.</div>
-    <div class="pub-meta"><em>European Symposium on Research in Computer Security (ESORICS), 2023.</em></div>
-    <div class="pub-links">
-      [<a href="https://eprint.iacr.org/2023/809">link</a>]
-    </div>
-  </div>
-</section>
-<section>
-  <h2>Teaching</h2>
-<p>
-  I have been involved with teaching for the following graduate courses at the HPI. 
-  <div class="teaching-item">
-    <div class="teaching-course"><strong>Introduction to Cryptography</strong></div>
-    <div class="teaching-meta"><em>Lecture (TA), WS 20/21, WS 21/22, WS 22/23, WS 23/24, WS 24/25</em></div>
-  </div>
-
-  <div class="teaching-item">
-    <div class="teaching-course"><strong>Advanced Cryptography</strong></div>
-    <div class="teaching-meta"><em> Lecture (TA), SS21, SS22, SS23, SS24 </em></div>
-  </div>
-     <div class="teaching-item">
-    <div class="teaching-course"><strong>Quantum-Safe Cryptography</strong></div>
-    <div class="teaching-meta"><em> Lecture, SS25 </em></div>
-  </div>
-   <div class="teaching-item">
-    <div class="teaching-course"><strong>Cryptographic Protocols</strong></div>
-    <div class="teaching-meta"><em> Seminar, SS23, SS24 </em></div>
-  </div>
-   <div class="teaching-item">
-    <div class="teaching-course"><strong>Security Analysis of Assertion Tokens in Single Sign-On Solutions </strong></div>
-    <div class="teaching-meta"><em> Masterproject, WS23/24 </em></div>
-  </div>
-     <div class="teaching-item">
-    <div class="teaching-course"><strong>Current Topics in Group Messaging</strong></div>
-    <div class="teaching-meta"><em> Seminar, WS22/23 </em></div>
-  </div>
-     <div class="teaching-item">
-    <div class="teaching-course"><strong>Password-based Authentication: Attacks & Defenses </strong></div>
-    <div class="teaching-meta"><em> Seminar, SS22 </em></div>
-  </div>
+          <div class="teaching-row">
+            <div class="teaching-left">2014 <br />University of Ulm</div>
+            <div class="teaching-right">Student Assistant: <strong>Algebra 2</strong></div>
+          </div>
 
 
-</section>
+          <div class="teaching-row">
+            <div class="teaching-left"> 2013<br />University of Ulm</div>
+            <div class="teaching-right">Student Assistant: <strong> Analysis 2</strong></div>
+          </div>
+        </div>
+      </section>
 
-  <section>
-    <h2>Contact & Links</h2>
-    <div class="social-links">
-      <a href="mailto:dennis.dayanikli@hpi.de">Email</a>
-      <a href="https://www.linkedin.com/in/dennis-dayanikli-71844913b/">LinkedIn</a>
-    </div>
-  </section>
-</main>
+      <section id="supervision">
+        <h2>Supervision</h2>
+        <p class="notes">An overview of supervision activities.</p>
+        <div class="cv-list">
+          <div class="cv-row">
+            <div class="cv-left">2025 <br /> Master Thesis </div>
+            <div class="cv-right">
+              <strong>Key Derivation Schemes for Unlinkability in the EU Identity Wallet</strong><br />
+              <span class="notes">Felix Auringer</span>
+            </div>
+          </div>
 
+          <div class="cv-row">
+            <div class="cv-left">2024 <br /> Master Thesis </div>
+            <div class="cv-right">
+              <strong>Password-Based Credentials with Tamper-Resistance</strong><br />
+              <span class="notes">Armin Wells</span>
+            </div>
+          </div>
+
+          <div class="cv-row">
+            <div class="cv-left">2024 <br /> Master Thesis </div>
+            <div class="cv-right">
+              <strong>Towards Privacy-Preserving Digital Identities: A Formal Approach to Selective Disclosure in Verifiable Credentials</strong><br />
+              <span class="notes">Thure Nebendahl</span>
+            </div>
+          </div>
+
+          <div class="cv-row">
+            <div class="cv-left">2024 <br /> Master Thesis </div>
+            <div class="cv-right">
+              <strong>Postcompromise Secure Signatures</strong><br />
+              <span class="notes">Johannes Lang</span>
+            </div>
+          </div>
+
+          <div class="cv-row">
+            <div class="cv-left">2023 <br /> Master Thesis </div>
+            <div class="cv-right">
+              <strong>An Analysis of Doctolib's Distributed Envelope Encryption Protocol</strong><br />
+              <span class="notes">Laura Holz</span>
+            </div>
+          </div>
+
+          <div class="cv-row">
+            <div class="cv-left">2022 <br /> Master Thesis </div>
+            <div class="cv-right">
+              <strong>Password Authentication for End-To-End Encrypted Protocols</strong><br />
+              <span class="notes">Moritz Feldmann</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-line">dennis (dot) dayanikli (at) hpi (dot) de</div>
+        <div class="inline-links">
+          <a href="https://www.linkedin.com/in/dennis-dayanikli-71844913b/">LinkedIn</a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
