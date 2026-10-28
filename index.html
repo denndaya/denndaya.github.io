@@ -207,10 +207,9 @@
       margin-bottom: 0.4rem;
     }
 
-    .inline-links a:not(:last-child)::after {
-      content: " /";
+    .inline-links .separator {
       color: var(--rule);
-      margin-left: 0.45rem;
+      margin-inline: 0.45rem;
     }
 
     @media (max-width: 720px) {
@@ -539,6 +538,8 @@
       <section id="contact">
         <h2>Contact</h2>
         <div class="inline-links">
+          <a href="mailto:dennis@dayanik.li">dennis@dayanik.li</a>
+          <span class="separator" aria-hidden="true">/</span>
           <a href="https://www.linkedin.com/in/dennis-dayanikli-71844913b/">LinkedIn</a>
         </div>
       </section>
